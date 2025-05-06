@@ -234,25 +234,22 @@ void findContours(Mat src, vector<vector<Point>>& contours)
         contour cnt = extract_contour(src, P0);
         contours.push_back(cnt.border);
 
-        //Remove that entire region so we don't re-detect it
+        //Remove region so it wont be refound
         removeRegion(src, P0);
     }
 }
 
 int areaOfContour(vector<Point> border, int rows, int cols)
 {
-    // 1) Obținem dreptunghiul de încadrare și îl intersectăm cu dimensiunile imaginii
     Rect rect = boundingRect(border);
     rect = rect & Rect(0, 0, cols, rows);
 
     int total = 0;
 
-    // 2) Pentru fiecare linie orizontală j din dreptunghi
     for (int j = rect.y; j < rect.y + rect.height; j++)
     {
         vector<int> nodes;
 
-        // 2a) Găsim intersecțiile conturului cu linia j
         int n = (int)border.size();
         for (int i = 0; i < n; i++)
         {
@@ -270,10 +267,8 @@ int areaOfContour(vector<Point> border, int rows, int cols)
         if (nodes.empty())
             continue;
 
-        // 2b) Sortăm intersecțiile pe axa X
         sort(nodes.begin(), nodes.end());
 
-        // 2c) Luăm perechi de puncte și numărăm pixeli între ele
         for (int k = 0; k + 1 < (int)nodes.size(); k += 2)
         {
             int x0 = max(nodes[k], rect.x);
@@ -289,7 +284,7 @@ int areaOfContour(vector<Point> border, int rows, int cols)
 bool detectFace(Mat src, RotatedRect& faceEllipse) {
     Mat ycrcb = convertRGBtoYCbCr(src);
     Mat skinMask;
-    inRange(ycrcb, Scalar(0, 140, 100), Scalar(255, 165, 135), skinMask); ////
+    inRange(ycrcb, Scalar(0, 140, 100), Scalar(255, 165, 135), skinMask);
 
     Mat closed = closing(skinMask,  ELLIPSE_5x5, 1);
     Mat opened = opening(closed, ELLIPSE_5x5, 1);
@@ -323,7 +318,7 @@ RotatedRect showFace(const Mat src, int nr) {
     RotatedRect faceEllipse;
     if (detectFace(src, faceEllipse)) {
         Mat dst = src.clone();
-        ellipse(dst, faceEllipse, Scalar(0, 0, 255), 2);//
+        ellipse(dst, faceEllipse, Scalar(0, 0, 255), 2);
         const String s = "Detected Face " + to_string(nr);
         imshow(s, dst);
     }else {
