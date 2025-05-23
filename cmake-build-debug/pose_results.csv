@@ -1,0 +1,11 @@
+file,method,face_detected,eyes_detected,correction_done,runtime_ms
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/pose\1.jpg,custom,1,1,1,30355.1
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/pose\1.jpg,haar,1,1,1,2394.53
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/pose\10.jpg,custom,1,1,1,4112.99
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/pose\10.jpg,haar,1,1,1,429.472
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/pose\9.jpg,custom,1,0,0,455.58
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/pose\9.jpg,haar,1,0,0,59.2444
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/pose\pexels-alimeddah-2806752.jpg,custom,1,1,1,20581.1
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/pose\pexels-alimeddah-2806752.jpg,haar,1,0,0,1154.41
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/pose\portrait-young-woman-with-natural-make-up.jpg,custom,1,1,1,77348.1
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/pose\portrait-young-woman-with-natural-make-up.jpg,haar,1,0,0,5418.36

@@ -1,0 +1,13 @@
+file,method,face_detected,eyes_detected,correction_done,runtime_ms
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/red_eyes\pic1.png,custom,1,1,1,1056.94
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/red_eyes\pic1.png,haar,1,0,0,243.667
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/red_eyes\pic10.jpg,custom,1,1,1,257.732
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/red_eyes\pic10.jpg,haar,1,0,0,42.7774
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/red_eyes\pic2.png,custom,1,1,1,266.177
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/red_eyes\pic2.png,haar,1,0,0,114.451
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/red_eyes\pic3.jpg,custom,1,1,1,4879.87
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/red_eyes\pic3.jpg,haar,1,1,1,664.63
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/red_eyes\pic4.jpg,custom,1,1,1,2684.46
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/red_eyes\pic4.jpg,haar,1,1,1,438.868
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/red_eyes\pic8.jpg,custom,1,1,1,495.916
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/red_eyes\pic8.jpg,haar,1,1,1,86.7038

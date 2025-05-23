@@ -1,0 +1,13 @@
+file,method,face_detected,eyes_detected,correction_done,runtime_ms
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/skin_tones\1 (923).jpg,custom,1,1,1,7031.7
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/skin_tones\1 (923).jpg,haar,1,1,1,1251
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/skin_tones\1 (954).jpg,custom,1,1,1,395.438
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/skin_tones\1 (954).jpg,haar,1,0,0,102.682
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/skin_tones\1 (958).jpg,custom,1,1,1,13190.2
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/skin_tones\1 (958).jpg,haar,1,1,0,2851.3
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/skin_tones\1 (974).jpg,custom,1,0,0,640.692
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/skin_tones\1 (974).jpg,haar,1,0,0,174.019
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/skin_tones\1 (984).jpg,custom,1,1,1,32714.1
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/skin_tones\1 (984).jpg,haar,1,0,0,6635.7
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/skin_tones\hassan-khan-EGVccebWodM-unsplash.jpg,custom,1,1,1,28050.5
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/skin_tones\hassan-khan-EGVccebWodM-unsplash.jpg,haar,1,1,1,3734.04

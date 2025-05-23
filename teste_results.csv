@@ -1,0 +1,17 @@
+file,method,face_detected,eyes_detected,correction_done,runtime_ms
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic1.png,custom,1,1,1,1105.16
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic1.png,haar,1,0,0,181.984
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic10.jpg,custom,1,1,1,104301
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic10.jpg,haar,1,1,1,6793.94
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic11.jpg,custom,1,1,1,40306.2
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic11.jpg,haar,1,1,0,2107.88
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic12.jpg,custom,1,1,1,22602.1
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic12.jpg,haar,1,1,1,1744.31
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic13.jpg,custom,1,1,1,424.593
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic13.jpg,haar,1,0,0,73.952
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic14.jpg,custom,1,1,1,239678
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic14.jpg,haar,1,1,1,10623.8
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic15.jpg,custom,1,1,1,1725.45
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic15.jpg,haar,1,0,0,410.999
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic16.jpg,custom,1,1,1,161461
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/teste\pic16.jpg,haar,1,0,0,5568.8

@@ -16,6 +16,7 @@ bool IsInside(int img_rows, int img_cols, int i, int j){
     return true;
 }
 
+//daca un pixel obiect (alb) este gasit, toti pixelii din structura de vecini vor lua culoarea obiectului
 Mat dilation(Mat source, neighborhood_structure neighborhood, int no_iter){
     Mat dst, aux;
     int rows, cols;
@@ -45,6 +46,8 @@ Mat dilation(Mat source, neighborhood_structure neighborhood, int no_iter){
 
 }
 
+//daca un pixel obiect (alb) este gasit si daca unul dintre pixelii din structura de vecini nu este un pixel obiect atunci
+//pixelul gasit initial va lua culoarea fundalului
 Mat erosion(Mat source, neighborhood_structure neighborhood, int no_iter){
     Mat dst, aux;
     int rows, cols;
@@ -62,7 +65,7 @@ Mat erosion(Mat source, neighborhood_structure neighborhood, int no_iter){
                     for (int k = 0; k < neighborhood.size; k++) {
                         int x = i + neighborhood.di[k];
                         int y = j + neighborhood.dj[k];
-                        if (!IsInside(rows, cols, x, y) || aux.at<uchar>(x, y) == 0) { //==255
+                        if (!IsInside(rows, cols, x, y) || aux.at<uchar>(x, y) == 0) {
                             objectPoints = false;
                             break;
                         }
@@ -77,6 +80,7 @@ Mat erosion(Mat source, neighborhood_structure neighborhood, int no_iter){
     return dst;
 }
 
+//elimina elemente mai mici decat elementul structural si netezeste contururile
 Mat opening(Mat source, neighborhood_structure neighborhood, int no_iter) {
     Mat dst, aux;
 
@@ -91,6 +95,7 @@ Mat opening(Mat source, neighborhood_structure neighborhood, int no_iter) {
 
 }
 
+//astupa golurile mici din interiorul obiectelor și face obiectul mai compact
 Mat closing(Mat source, neighborhood_structure neighborhood, int no_iter) {
 
     Mat dst, aux;
@@ -140,6 +145,7 @@ Mat convertRGBtoGrayscale(Mat source){
 
 }
 
+//de la pixelul curent se verifica vecinii in sens orar pana se gaseste un pixel alb care va reprezenta urmatorul punct de pe contur
 contour extract_contour(Mat src, Point P0) {
     int dir = 7;
     Point Pcurrent = P0;
@@ -156,7 +162,7 @@ contour extract_contour(Mat src, Point P0) {
             dir = (dir + 6) % 8;
         }
 
-        for (int i = 0; i < 8; ++i) {
+        for (int i = 0; i < 8; ++i) { //clockwise order
             int y = Pcurrent.y + n8_di[dir];
             int x = Pcurrent.x + n8_dj[dir];
             if (IsInside(src.rows, src.cols, y, x) && src.at<uchar>(y, x) == 255) {
@@ -188,23 +194,27 @@ Mat draw_contour(vector<Point> border, Mat source) {
     return dst;
 }
 
+//Eliminarea componentei conectate care porneste de la P0 prin DFS pentru a evita contururi duplicate
 void removeRegion(Mat src, Point P0) {
     stack<Point> stack;
     stack.push(P0);
     while (!stack.empty()) {
         Point p = stack.top();
         stack.pop();
-        if (p.x < 0 || p.x >= src.cols || p.y < 0 || p.y >= src.rows) {
+        //daca e inafara imaginii trece la urmatorul
+        if (!IsInside(src.rows, src.cols, p.y, p.x)) {
             continue;
         }
+        //daca e pixel obiect (negru) trece mai departe
         if (src.at<uchar>(p.y, p.x) != 255) {
             continue;
         }
+        //daca e pixel obiect si se afla in interiorul imaginii devine negru
         src.at<uchar>(p.y,p.x) = 0;
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
-                if (j||i) {
-                    stack.push({p.x + j,p.y + i});
+                if (!(i == 0 && j == 0)) {
+                    stack.push({p.x + j,p.y + i});  //se adauga toti cei 8 vecini pentru a fi verificati
                 }
             }
         }
@@ -242,24 +252,24 @@ void findContours(Mat src, vector<vector<Point>>& contours)
 int areaOfContour(vector<Point> border, int rows, int cols)
 {
     Rect rect = boundingRect(border);
-    rect = rect & Rect(0, 0, cols, rows);
+    rect = rect & Rect(0, 0, cols, rows); //intersectie
 
     int total = 0;
 
-    for (int j = rect.y; j < rect.y + rect.height; j++)
+    for (int j = rect.y; j < rect.y + rect.height; j++) //pentru fiecare linie orizontala din dreptunghi
     {
         vector<int> nodes;
 
         int n = (int)border.size();
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) //parcurgem nodurile din contur
         {
             Point p1 = border[i];
             Point p2 = border[(i + 1) % n];
 
-            bool cross = (p1.y <= j && p2.y > j) || (p2.y <= j && p1.y > j);
+            bool cross = (p1.y <= j && p2.y > j) || (p2.y <= j && p1.y > j); //daca un punct se afla deasupra scan-lineului iar celelalt sub
             if (cross)
             {
-                int x = p1.x + (double)(j - p1.y) * (p2.x - p1.x) / (p2.y - p1.y);
+                int x = p1.x + (double)(j - p1.y) * (p2.x - p1.x) / (p2.y - p1.y); //x-ul intersectiei
                 nodes.push_back(x);
             }
         }
@@ -308,7 +318,7 @@ bool detectFace(Mat src, RotatedRect& faceEllipse) {
     }
 
     if (maxIdx >= 0 && contours[maxIdx].size() >= 5 && maxArea > 1000) {
-        faceEllipse = fitEllipse(contours[maxIdx]); ////
+        faceEllipse = fitEllipse(contours[maxIdx]);
         return true;
     }
     return false;
@@ -416,7 +426,7 @@ bool detectEyes(const Mat src, const RotatedRect faceEllipse, vector<Point>& eye
         if (area < 10 || area > 500)
             continue;
 
-        int minX=INT_MAX, maxX=0, minY=INT_MAX, maxY=0;
+        int minX=INT_MAX, maxX=0, minY=INT_MAX, maxY=0;  //box-ul care cuprinde ochiul
         for (int j = 0; j < contours[i].size(); j++) {
             Point p = contours[i][j];
             minX = min(minX, p.x);
@@ -427,8 +437,8 @@ bool detectEyes(const Mat src, const RotatedRect faceEllipse, vector<Point>& eye
 
         int w = maxX - minX + 1;
         int h = maxY - minY + 1;
-        float aspect = float(w) / h;
-        if (aspect < 0.3f || aspect > 3.0f)
+        float aspect = float(w) / h; //forma conturului
+        if (aspect < 0.3f || aspect > 3.0f) //daca e prea turtita sau prea alungita nu e un candidat bun
             continue;
 
         Point center(minX + w/2, minY + h/2);
@@ -442,10 +452,10 @@ bool detectEyes(const Mat src, const RotatedRect faceEllipse, vector<Point>& eye
     Point eye1, eye2;
     for (int i = 0; i < candidates.size(); i++) {
         for (int j = i+1; j < candidates.size(); j++) {
-            float dx = candidates[i].x - candidates[j].x;
-            float dy = abs(candidates[i].y - candidates[j].y);
-            float dist  = sqrt(dx * dx + dy * dy);
-            if (dy < 15 && dist > bestDist) {
+            float dx = candidates[i].x - candidates[j].x; //cat de departe sunt pe orizontala
+            float dy = abs(candidates[i].y - candidates[j].y); //cat de aliniati sunt pe verticala
+            float dist  = sqrt(dx * dx + dy * dy); //dist dintre puncte
+            if (dy < 15 && dist > bestDist) {      //dy trebuie sa fie cat mai mic iar dist cat mai mare pentru o pereche buna
                 bestDist = dist;
                 eye1 = candidates[i];
                 eye2 = candidates[j];
@@ -533,7 +543,8 @@ bool correctRedEyes(Mat& src, const RotatedRect faceEllipse, const vector<Point>
 
         Mat eyeBGR = cropBGR(src, eyeRect);
         Mat eyeLab;
-        cvtColor(eyeBGR, eyeLab, COLOR_BGR2Lab);
+        cvtColor(eyeBGR, eyeLab, COLOR_BGR2Lab); //mai usor de sters rosul fara a strica luminozitatea
+
 
         vector<Mat> bgr(3);
         splitBGR(eyeBGR, bgr);
@@ -541,6 +552,7 @@ bool correctRedEyes(Mat& src, const RotatedRect faceEllipse, const vector<Point>
         maxMat(bgr[1], bgr[0], maxGB);
         Mat diff = eyeBGR.clone();
         subtractMat(bgr[2], maxGB, diff);
+        //in diff raman pixelii care au valoarea R care depaseste cu mult valoarea G, B
         Mat redMask = thresholding(diff, 50, true);
         redMask = closing(redMask, ELLIPSE_3x3, 1);
 
@@ -553,9 +565,9 @@ bool correctRedEyes(Mat& src, const RotatedRect faceEllipse, const vector<Point>
 
         Mat irisMask = 255 - (scleraMask | pupilMask);
 
-        Scalar meanLab = mean(eyeLab, irisMask);
-        uchar meanA = static_cast<uchar>(meanLab[1]);
-        uchar meanB = static_cast<uchar>(meanLab[2]);
+        Scalar meanLab = mean(eyeLab, irisMask);  //valoarea medie a culorii irisului
+        uchar meanA = static_cast<uchar>(meanLab[1]); //a - opozitia verde/rosu
+        uchar meanB = static_cast<uchar>(meanLab[2]); //b - opositia albastru/galben
 
         for (int i = 0; i < eyeLab.rows; i++) {
             for (int j = 0; j < eyeLab.cols; j++) {

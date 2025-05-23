@@ -1,0 +1,13 @@
+file,method,face_detected,eyes_detected,correction_done,runtime_ms
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/noise\1 (848).jpg,custom,1,1,1,1694.03
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/noise\1 (848).jpg,haar,1,1,0,493.587
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/noise\1 (973).jpg,custom,1,1,1,642.173
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/noise\1 (973).jpg,haar,1,1,0,155.449
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/noise\pexels-aadil-2598024.jpg,custom,1,1,1,48412.1
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/noise\pexels-aadil-2598024.jpg,haar,1,1,0,5868.41
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/noise\pexels-jay-brand-1763356224-31780164.jpg,custom,1,1,1,17010.8
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/noise\pexels-jay-brand-1763356224-31780164.jpg,haar,1,1,1,2669.86
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/noise\pexels-laziccvanja-15858657.jpg,custom,1,1,1,21383.1
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/noise\pexels-laziccvanja-15858657.jpg,haar,1,0,0,3462.81
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/noise\pexels-szafran-16702384.jpg,custom,1,0,0,4286.57
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/noise\pexels-szafran-16702384.jpg,haar,1,1,0,2114.27

@@ -1,0 +1,13 @@
+file,method,face_detected,eyes_detected,correction_done,runtime_ms
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/lighting\1 (86).jpg,custom,1,0,0,106.013
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/lighting\1 (86).jpg,haar,1,0,0,240.897
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/lighting\1 (920).jpg,custom,1,0,0,100.867
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/lighting\1 (920).jpg,haar,1,0,0,61.374
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/lighting\1 (945).jpg,custom,1,1,1,1447.52
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/lighting\1 (945).jpg,haar,0,0,0,139.697
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/lighting\test1.jpg,custom,1,1,1,378.025
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/lighting\test1.jpg,haar,1,0,0,78.9663
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/lighting\test2.jpg,custom,1,0,0,145.102
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/lighting\test2.jpg,haar,1,0,0,42.101
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/lighting\test3.jpg,custom,1,0,0,425.731
+C:\CTI\An 3 sem 2\PI\Proiect\Project\tests/lighting\test3.jpg,haar,1,1,0,127.848

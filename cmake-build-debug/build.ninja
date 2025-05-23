@@ -85,6 +85,51 @@ build Project.exe: CXX_EXECUTABLE_LINKER__Project_Debug CMakeFiles\Project.dir\m
   TARGET_IMPLIB = Project.lib
   TARGET_PDB = Project.pdb
 
+# =============================================================================
+# Object build statements for EXECUTABLE target TestRedEye
+
+
+#############################################
+# Order-only phony target for TestRedEye
+
+build cmake_object_order_depends_target_TestRedEye: phony || .
+
+build CMakeFiles\TestRedEye.dir\src\test.cpp.obj: CXX_COMPILER__TestRedEye_unscanned_Debug C$:\CTI\An$ 3$ sem$ 2\PI\Proiect\Project\src\test.cpp || cmake_object_order_depends_target_TestRedEye
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
+  INCLUDES = -external:IC:\Users\somod\Downloads\opencv\build\include -external:W0
+  OBJECT_DIR = CMakeFiles\TestRedEye.dir
+  OBJECT_FILE_DIR = CMakeFiles\TestRedEye.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\TestRedEye.dir\
+  TARGET_PDB = TestRedEye.pdb
+
+build CMakeFiles\TestRedEye.dir\src\red-eyes.cpp.obj: CXX_COMPILER__TestRedEye_unscanned_Debug C$:\CTI\An$ 3$ sem$ 2\PI\Proiect\Project\src\red-eyes.cpp || cmake_object_order_depends_target_TestRedEye
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++17
+  INCLUDES = -external:IC:\Users\somod\Downloads\opencv\build\include -external:W0
+  OBJECT_DIR = CMakeFiles\TestRedEye.dir
+  OBJECT_FILE_DIR = CMakeFiles\TestRedEye.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\TestRedEye.dir\
+  TARGET_PDB = TestRedEye.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target TestRedEye
+
+
+#############################################
+# Link the executable TestRedEye.exe
+
+build TestRedEye.exe: CXX_EXECUTABLE_LINKER__TestRedEye_Debug CMakeFiles\TestRedEye.dir\src\test.cpp.obj CMakeFiles\TestRedEye.dir\src\red-eyes.cpp.obj | C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib C$:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  C:\Users\somod\Downloads\opencv\build\x64\vc16\lib\opencv_world4110d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = CMakeFiles\TestRedEye.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\TestRedEye.dir\
+  TARGET_FILE = TestRedEye.exe
+  TARGET_IMPLIB = TestRedEye.lib
+  TARGET_PDB = TestRedEye.pdb
+
 
 #############################################
 # Utility command for edit_cache
@@ -113,6 +158,8 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 
 build Project: phony Project.exe
 
+build TestRedEye: phony TestRedEye.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -121,7 +168,7 @@ build Project: phony Project.exe
 #############################################
 # Folder: C:/CTI/An 3 sem 2/PI/Proiect/Project/cmake-build-debug
 
-build all: phony Project.exe
+build all: phony Project.exe TestRedEye.exe
 
 # =============================================================================
 # Built-in targets
